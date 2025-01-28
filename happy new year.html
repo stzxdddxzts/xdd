@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年快乐！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #c72b2b;
+            font-family: 'Microsoft Yahei', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .blessing {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: firework 1.5s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes firework {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        .lantern {
+            width: 60px;
+            position: absolute;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-15deg); }
+            50% { transform: rotate(15deg); }
+        }
+
+        .button {
+            background: #ffd700;
+            color: #c72b2b;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 2rem;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .blessing { padding: 1rem; }
+            p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 烟花效果 -->
+    <div class="firework" style="left: 10%;"></div>
+    <div class="firework" style="left: 30%; animation-delay: 0.5s"></div>
+    <div class="firework" style="left: 70%; animation-delay: 1s"></div>
+    <div class="firework" style="left: 90%; animation-delay: 1.5s"></div>
+
+    <!-- 灯笼 -->
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
+         class="lantern"
+         style="left: 5%; top: 10%"
+         alt="灯笼">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
+         class="lantern"
+         style="right: 5%; top: 10%"
+         alt="灯笼">
+
+    <div class="container">
+        <h1>🎉 新年快乐！ 🎊</h1>
+
+        <div class="blessing">
+            <p>亲爱的朋友：</p>
+            <p>值此新春佳节，愿您</p>
+            <p>🏮 岁岁平安 🏮</p>
+            <p>💰 财源广进 💰</p>
+            <p>😊 笑口常开 😊</p>
+            <p>🎯 万事如意 🎯</p>
+            <p>让我们共同迎接充满希望的崭新一年！</p>
+        </div>
+
+        <button class="button" onclick="showMoreBlessings()">点击开启祝福</button>
+    </div>
+
+    <script>
+        function showMoreBlessings() {
+            const blessingDiv = document.querySelector('.blessing');
+            blessingDiv.innerHTML += `
+                <p style="animation: fadeIn 1s">🎁 好事连连 🎁</p>
+                <p style="animation: fadeIn 1s">🍀 心想事成 🍀</p>
+                <p style="animation: fadeIn 1s">👨👩👧👦 阖家欢乐 👨👩👧👦</p>
+            `;
+            document.querySelector('.button').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
